@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tabela de Doadores</title>
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-white navbar-white sticky-top">
+        <div class="container-fluid" style="width: 67%;">
+            <a class="navbar-brand" href="../../index.html">
+                <img src="../img/01T.png" alt="Avatar Logo" style="width:160px" class="rounded-pill">
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#quemsomos">Quem somos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://catedralcomunhao.com">A Catedral</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Projetos
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Projeto Compaixão</a></li>
+                        <li><a class="dropdown-item" href="#">Comunhão nas Ruas</a></li>
+                        <li><a class="dropdown-item" href="#">Comunhão nos Presídios</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#form">Doação</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../pages/autenticao.html">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div>
+        <table class="table" id="clients">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>Doação</th>
+                    <th>Projeto</th>
+                </tr>
+            </thead>
+            <tbody id="clientsRows">
+
+            </tbody>
+        </table>
+    </div>
+    <script src="../js/jquery-3.6.4.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script>
+      
+    </script>
+    <!-- <script>
+        const url = 'http://localhost:3001';
+
+        const createbutton = (label, type) => {
+            return $('<button>').addClass(`btn btn-${type}`).html(label)
+        }
+
+        const renderRows = cadastros => {
+            const rows = cadastros.map(cadastro => {
+                const removeButton = createbutton('Excluir', 'danger');
+                removeButton.click(() => removeCadastro(cadastro));
+
+                const novaLinha = $('<tr>');
+                return novaLinha.append($('<td>').text(cadastro.nome))
+                    .append($('<td>').text(cadastro.email))
+                    .append($('<td>').text(cadastro.telefone))
+                    .append($('<td>').text(cadastro.valor))
+                    .append($('<td>').text(cadastro.projeto))
+                    .append($('<td>').append(updateButton))
+            });
+            $('#clientsRows').html(rows);
+        }
+        const removeCadastro = cadastro => {
+            $.ajax({
+                method: 'DELETE',
+                url: `${url}/cadastro/${id}`,
+                success: getCadastro
+            })
+        }
+        const getCadastro = () => {
+            $.ajax({
+                url: `${url}/cadastro`,
+                success: cadastros => {
+                    renderRows(cadastros);
+                }
+            });
+        };
+    </script> -->
+</body>
+
+</html>

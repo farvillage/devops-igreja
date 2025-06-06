@@ -1,0 +1,48 @@
+
+version: '3.7'
+services:
+
+  db:
+    image: mariadb:latest
+    container_name: db
+    environment:
+      MARIADB_DATABASE: doador
+      MARIADB_USER: user
+      MARIADB_PASSWORD: 1234567
+      MARIADB_ROOT_PASSWORD: 1234567
+    ports:
+      - 3307:3307
+    volumes:
+      - ./.data/mariadb/data:/var/lib/mariadb
+    networks:
+      - dev-network
+
+  frontend:
+    image: nginx:latest
+    container_name: nginx
+    ports: 
+      - 8080:80
+    volumes:
+      - ./front:/usr/share/nginx/html
+    networks:
+      - dev-network
+
+networks:
+  dev-network:
+    driver: bridge
+
+api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: api
+    entrypoint: ./entrypoint.sh
+    volumes:
+      - ./api:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - 3001:3001
+    depends_on:
+      - db
+    networks:
+      - dev-network
