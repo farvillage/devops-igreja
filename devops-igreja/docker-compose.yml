@@ -1,5 +1,4 @@
-
-version: '3.7'
+version: "3.7"
 services:
 
   db:
@@ -20,18 +19,14 @@ services:
   frontend:
     image: nginx:latest
     container_name: nginx
-    ports: 
+    ports:
       - 8080:80
     volumes:
       - ./front:/usr/share/nginx/html
     networks:
       - dev-network
 
-networks:
-  dev-network:
-    driver: bridge
-
-api:
+  api:
     build:
       context: ./api
       dockerfile: Dockerfile
@@ -46,3 +41,7 @@ api:
       - db
     networks:
       - dev-network
+
+networks:
+  dev-network:
+    driver: bridge
